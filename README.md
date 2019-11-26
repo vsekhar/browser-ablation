@@ -6,7 +6,7 @@ This document proposes a low-level mechanism to support ablation experiments whe
 
 Measuring site performance benefits from a close connection with publisher business outcomes. Establishing this connection is difficult and often confounded by concurrent changes to site UX, content and product offerings.
 
-Causal connections between performance and business outcomes require randomized A/B testing on live traffic. Sites, frameworks and analytics providers support such experiments within the scope of the components they control, e.g. by varying the image or javascript payloads, or delaying server response. However, these methods do not always have a direct relationship to user-observable performance.
+**Causal connections** between performance and business outcomes require randomized A/B testing on live traffic. Sites, frameworks and analytics providers may support such experiments within the scope of the components they control, e.g. by varying the image or javascript payloads, or delaying server response. However, these methods do not always have a direct relationship to user-observable performance and/or require large interventions affecting many users to produce measurable effects.
 
 Internally, Chrome has used browser-based experiments that modify memory use and establish causal connections between memory use and user experience. These studies are known as ablation studies, and are common in other black- or grey-box testing environments like machine learning.
 
@@ -36,9 +36,9 @@ Alternatively, an HTML meta tag can be used to similar effect:
 
 Ablation types include:
 
- * first-contentful-paint
- * first-input-delay
- * time-to-first-byte
+ * `first-contentful-paint`
+ * `first-input-delay`
+ * `time-to-first-byte`
  * Something scrolling?
  * … others?
 
@@ -46,7 +46,7 @@ Ablation types include:
 
 Ablations are applied by the browser in addition to any delays organically present during the page load.
 
-For example, setting a non-zero ablation value for first-input-delay would be semantically equivalent to inserting a one-time busy wait at the top of all input event handlers:
+For example, setting a non-zero ablation value for `first-input-delay` would be semantically equivalent to inserting a one-time busy wait at the top of all input event handlers:
 
 ```js
 document.getElementById("myButton").addEventListener("click", clickHandler);
@@ -58,7 +58,7 @@ function clickHandler() {
 }
 ```
 
-Ablation of time-to-first-byte (TTFB) is approximated by applying a delay as soon as the ablation parameter is read. For greater accuracy, we may recommend (require?) TTFB ablation be declared via a header.
+Ablation of `time-to-first-byte` is approximated by applying a delay as soon as the ablation parameter is read. For greater accuracy, we may recommend (require?) that ablation of `time-to-first-byte` be declared via a header.
 
 ### Performance metrics
 
