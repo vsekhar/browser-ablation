@@ -39,6 +39,9 @@ Ablation types include:
  * `first-contentful-paint`
  * `first-input-delay`
  * `time-to-first-byte`
+ * `javascript-time-to-first-byte`
+ * `javascript-first-parse`
+ * `javascript-first-compile`
  * Something scrolling?
  * … others?
 
@@ -59,6 +62,8 @@ function clickHandler() {
 ```
 
 Ablation of `time-to-first-byte` is approximated by applying a delay as soon as the ablation parameter is read. For greater accuracy, we may recommend (require?) that ablation of `time-to-first-byte` be declared via a header.
+
+Javascript ablation delays script execution at various stages. Abaltion of `javascript-time-to-first-byte` delays the availability of the payload of the first JS fetch. Ablation of `javascript-first-{parse,compile}` delays the start of parsing or compiling the first javascript payload.
 
 ### Subresources
 
@@ -86,3 +91,5 @@ Sites can choose business events and metrics relevant to their page (e.g. sub-pa
 ## Major edits
 
  * 2019-12-06: Add subresource ablation policy.
+ * 2019-12-06: Add potential javascript ablation values
+   * Tag providers (ad networks, analytics providers) can assess impact on business metrics for 
