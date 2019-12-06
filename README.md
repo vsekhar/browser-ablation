@@ -60,6 +60,14 @@ function clickHandler() {
 
 Ablation of `time-to-first-byte` is approximated by applying a delay as soon as the ablation parameter is read. For greater accuracy, we may recommend (require?) that ablation of `time-to-first-byte` be declared via a header.
 
+### Subresources
+
+Ablation values specified when fetching first-party subresources are applied to that sub-resource.
+
+Ablation values specified when fetchin third-party subresources are ignored.
+
+> TODO: COEP-style permission for third-party subresource ablation?
+
 ### Performance metrics
 
 Performance metrics are reported as usual via the Performance API. For page loads where ablations are applied, performance metrics will include those ablations. Performance APIs will also report the ablation values, if any, applied to the page load.
@@ -74,3 +82,7 @@ Sites can choose business events and metrics relevant to their page (e.g. sub-pa
    * Egregious ablation amounts (e.g. 100,000ms)
    * Repeated ablation on the same domain, possibly an error in user diversion
    * Repeated ablation for a given user across domains, possibly due to overuse of ablation among popular sites
+
+## Major edits
+
+ * 2019-12-06: Add subresource ablation policy.
