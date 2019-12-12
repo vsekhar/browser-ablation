@@ -2,6 +2,8 @@
 
 This document proposes a low-level mechanism to support ablation experiments when measuring web site performance.
 
+> Ablation (/əˈblāSHən/) is the removal of a feature or capability from a system to ascertain its causal effect on the system's output. The term originates in medicine and more recently is used to describe causal testing of black- or grey-box systems like in machine learning.
+
 ## Background
 
 Measuring site performance benefits from a close connection with publisher business outcomes. Establishing this connection is difficult and often confounded by concurrent changes to site UX, content and product offerings.
