@@ -44,6 +44,7 @@ Ablation types include:
  * `javascript-time-to-first-byte`
  * `javascript-first-parse`
  * `javascript-first-compile`
+ * `memory-private-footprint`
  * Something scrolling?
  * … others?
 
@@ -66,6 +67,8 @@ function clickHandler() {
 Ablation of `time-to-first-byte` is approximated by applying a delay as soon as the ablation parameter is read. For greater accuracy, we may recommend (require?) that ablation of `time-to-first-byte` be declared via a header.
 
 Javascript ablation delays script execution at various stages. Abaltion of `javascript-time-to-first-byte` delays the availability of the payload of the first JS fetch. Ablation of `javascript-first-{parse,compile}` delays the start of parsing or compiling the first javascript payload.
+
+Memory ablation causes the renderer to allocate and leave unused a memory region of the specified size above the memory organically used by the renderer.
 
 ### Subresources
 
