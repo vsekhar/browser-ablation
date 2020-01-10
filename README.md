@@ -74,7 +74,7 @@ Memory ablation causes the renderer to allocate and leave unused a memory region
 
 Ablation values specified when fetching first-party subresources are applied to that sub-resource.
 
-Ablation values specified when fetchin third-party subresources are ignored.
+Ablation values specified when fetching third-party subresources are ignored.
 
 > TODO: COEP-style permission for third-party subresource ablation?
 
