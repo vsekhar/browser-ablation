@@ -25,13 +25,13 @@ User diversion into experiment groups is the responsibility of sites. It is reco
 A site (or more likely, their experiments provider/CDN) can indicate desired ablation values for a page load via an HTTP response header:
 
 ```http
-Ablation: first-contentful-paint=20ms;first-input-delay=10ms;
+Ablation: first-contentful-paint=20ms;first-input-delay=10ms;drop-frames-scroll=10%
 ```
 
 Alternatively, an HTML meta tag can be used to similar effect:
 
 ```http
-<meta name="ablation" content="first-contentful-paint=20ms, first-input-delay=10ms">
+<meta name="ablation" content="first-contentful-paint=20ms, first-input-delay=10ms, drop-frames-scroll=10%">
 ```
 
 ### Ablation types
@@ -45,7 +45,8 @@ Ablation types include:
  * `javascript-first-parse`
  * `javascript-first-compile`
  * `memory-private-footprint`
- * Something scrolling?
+ * `drop-frames-scroll`
+ * `drop-frames-animation`
  * … others?
 
 ### Ablation semantics
@@ -69,6 +70,8 @@ Ablation of `time-to-first-byte` is approximated by applying a delay as soon as 
 Javascript ablation delays script execution at various stages. Abaltion of `javascript-time-to-first-byte` delays the availability of the payload of the first JS fetch. Ablation of `javascript-first-{parse,compile}` delays the start of parsing or compiling the first javascript payload.
 
 Memory ablation causes the renderer to allocate and leave unused a memory region of the specified size above the memory organically used by the renderer.
+
+Frame rate ablation using `drop-frames-scroll` and `drop-frames-animation` will cause the browser to drop randomly selected frames during scrolling and animation in the proportion indicated (as a percentage of all frames). Frames dropped via these ablation parameters are in addition to any frames that would be organically dropped.
 
 ### Subresources
 
@@ -95,6 +98,7 @@ Sites can choose business events and metrics relevant to their page (e.g. sub-pa
 
 ## Major edits
 
+ * 2020-09-01: Add frame rate ablation.
  * 2019-12-06: Add subresource ablation policy.
  * 2019-12-06: Add potential javascript ablation values
    * Tag providers (ad networks, analytics providers) can assess impact on business metrics for 
