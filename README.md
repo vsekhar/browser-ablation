@@ -38,16 +38,16 @@ Alternatively, an HTML meta tag can be used to similar effect:
 
 Ablation types include:
 
- * `first-contentful-paint`
- * `first-input-delay`
- * `time-to-first-byte`
- * `javascript-time-to-first-byte`
- * `javascript-first-parse`
- * `javascript-first-compile`
- * `memory-private-footprint`
- * `drop-frames-scroll`
- * `drop-frames-animation`
- * … others?
+* `first-contentful-paint`
+* `first-input-delay`
+* `time-to-first-byte`
+* `javascript-time-to-first-byte`
+* `javascript-first-parse`
+* `javascript-first-compile`
+* `memory-private-footprint`
+* `drop-frames-scroll`
+* `drop-frames-animation`
+* … others?
 
 ### Ablation semantics
 
@@ -91,14 +91,13 @@ Sites can choose business events and metrics relevant to their page (e.g. sub-pa
 
 ## Open issues
 
- * Should the UA be able to override the ablation request? Some cases where this may be needed:
-   * Egregious ablation amounts (e.g. 100,000ms)
-   * Repeated ablation on the same domain, possibly an error in user diversion
-   * Repeated ablation for a given user across domains, possibly due to overuse of ablation among popular sites
+* Should the UA be able to override the ablation request? Some cases where this may be needed:
+  * Egregious ablation amounts (e.g. 100,000ms)
+  * Repeated ablation on the same domain, possibly an error in user diversion
+  * Repeated ablation for a given user across domains, possibly due to overuse of ablation among popular sites
 
 ## Major edits
 
- * 2020-09-01: Add frame rate ablation.
- * 2019-12-06: Add subresource ablation policy.
- * 2019-12-06: Add potential javascript ablation values
-   * Tag providers (ad networks, analytics providers) can assess impact on business metrics for 
+* 2020-09-01: Add frame rate ablation.
+* 2019-12-06: Add subresource ablation policy.
+* 2019-12-06: Add potential javascript ablation values
